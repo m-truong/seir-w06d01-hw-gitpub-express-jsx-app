@@ -5,7 +5,7 @@ const PORT = 3000;
 // creates JSX view-engine
 const viewEngine = require('express-react-views').createEngine
 
-// requires the drinks-modal exports data! 
+// requires the drinks-modal exports data
 // stores the data
 const drinks = require('./models/drinks.js')
 
@@ -16,13 +16,19 @@ app.engine('jsx', viewEngine())
 // INDEX-Route that shows ALL resources
 app.get('/', (req, res) => {
     res.send(`<h1 style="font-size: 30px; color: red;"> Welcome to the GitPub App</h1>`)
+    
 })
 
-// 
-app.get('/drinks', (req, res) => {
-    res.send(drinks); 
-})
+
 // SHOW-route that shows a single resource
+app.get('/drinks', (req, res) => {
+    // res.send(drinks);
+
+    // change INDEX-route to render dynamically
+    res.render('Index', {
+
+    })
+})
 
 
 // listen
