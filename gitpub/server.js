@@ -5,7 +5,7 @@ const PORT = 3000;
 // creates JSX view-engine
 const viewEngine = require('express-react-views').createEngine
 
-// requires the drinks-modal exports data
+// requires the drinks-model exports data
 // stores the data
 const drinks = require('./models/drinks.js')
 
@@ -22,11 +22,12 @@ app.get('/', (req, res) => {
 
 // SHOW-route that shows a single resource
 app.get('/drinks', (req, res) => {
+
     // res.send(drinks);
 
     // change INDEX-route to render dynamically
     res.render('Index', {
-
+        drinks: drinks
     })
 })
 
